@@ -21,16 +21,6 @@ public class ProgrammazioneController {
     @Autowired
     private ProgrammazioneService programmazioneService;
 
-    // Endpoint per l'autenticazione
-    @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password) {
-        if (authService.authenticate(username, password)) {
-            return "Login effettuato";
-        } else {
-            return "Credenziali errate";
-        }
-    }
-
 
     // Endpoint per ottenere le programmazioni filtrate in base alle date
     // Se vengono passate credenziali valide (admin) restituisce tutto, altrimenti solo quelle in programmazione

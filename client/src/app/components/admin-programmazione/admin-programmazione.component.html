@@ -1,0 +1,39 @@
+<div class="container">
+    <h2>Programmazione - Vista Admin</h2>
+    <div class="login">
+      <label>
+        Username:
+        <input type="text" [(ngModel)]="username">
+      </label>
+      <label>
+        Password:
+        <input type="password" [(ngModel)]="password">
+      </label>
+      <button (click)="getProgrammazioni()">Accedi e Filtra</button>
+    </div>
+    <div class="filters" *ngIf="username && password">
+      <label>
+        Data Inizio:
+        <input type="date" [(ngModel)]="dataInizio" (change)="getProgrammazioni()">
+      </label>
+      <label>
+        Data Fine:
+        <input type="date" [(ngModel)]="dataFine" (change)="getProgrammazioni()">
+      </label>
+    </div>
+    <div *ngIf="message">
+      <p>{{ message }}</p>
+    </div>
+    <div *ngIf="programmazioni.length > 0; else noData">
+      <ul>
+        <li *ngFor="let prog of programmazioni">
+          <strong>{{ prog.film.titolo }}</strong> ({{prog.film.durata}} minuti, data uscita: {{prog.film.dataUscita | date:'dd/MM/yyyy'}}) in sala {{ prog.sala.numero }} ({{ prog.sala.tecnologia }})<br>
+          dal {{ prog.dataInizio | date:'dd/MM/yyyy' }} al {{ prog.dataFine | date:'dd/MM/yyyy' }}
+        </li>
+      </ul>
+    </div>
+    <ng-template #noData>
+      <p>Nessuna programmazione trovata.</p>
+    </ng-template>
+  </div>
+  

@@ -4,6 +4,7 @@ import it.challenge.cinemille.api.entities.Film;
 import it.challenge.cinemille.api.entities.Sala;
 import it.challenge.cinemille.api.entities.Programmazione;
 import it.challenge.cinemille.api.entities.Gestore;
+import it.challenge.cinemille.api.models.Tecnologia;
 import it.challenge.cinemille.api.repositories.FilmRepository;
 import it.challenge.cinemille.api.repositories.SalaRepository;
 import it.challenge.cinemille.api.repositories.ProgrammazioneRepository;
@@ -41,9 +42,9 @@ public class DataInit implements CommandLineRunner {
         filmRepository.save(film2);
 
         // Inizializza sale
-        Sala sala1 = new Sala(1, 250, "IMAX");
-        Sala sala2 = new Sala(2, 150, "Standard");
-        Sala sala3 = new Sala(3, 50, "Standard");
+        Sala sala1 = new Sala(1, 250, Tecnologia.IMAX);
+        Sala sala2 = new Sala(2, 150, Tecnologia.STANDARD);
+        Sala sala3 = new Sala(3, 50, Tecnologia.STANDARD);
         salaRepository.save(sala1);
         salaRepository.save(sala2);
         salaRepository.save(sala3);
@@ -53,8 +54,8 @@ public class DataInit implements CommandLineRunner {
         gestoreRepository.save(gestore);
 
         // Inizializza programmazioni
-        Date start1 = sdf.parse("2025-02-8");
-        Date end1 = sdf.parse("2025-02-28");
+        Date start1 = sdf.parse("2025-02-23");
+        Date end1 = sdf.parse("2025-03-05");
         Programmazione prog1 = new Programmazione(start1, end1, film1, sala1);
 
         Date start2 = sdf.parse("2025-01-01");

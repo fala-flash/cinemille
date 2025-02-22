@@ -1,0 +1,30 @@
+<div class="programmazione-container">
+    <h1 class="title">🎬 Programmazione Attuale</h1>
+  
+    <div class="filter-container">
+      <label for="startDate">Data Inizio:</label>
+      <input type="date" id="startDate" [(ngModel)]="dataInizio">
+  
+      <label for="endDate">Data Fine:</label>
+      <input type="date" id="endDate" [(ngModel)]="dataFine">
+  
+      <button (click)="getProgrammazioni()">Filtra</button>
+    </div>
+  
+    <div *ngIf="programmazioni.length === 0" class="no-results">
+      Nessun film disponibile per questo intervallo di date.
+    </div>
+  
+    <div class="film-list">
+      <div class="film-card" *ngFor="let prog of programmazioni">
+        <h2>{{ prog.film.titolo }}</h2>
+        <p>{{ prog.film.durata }} minuti</p>
+        <p>Data uscita: {{prog.film.dataUscita | date:'dd/MM/yyyy'}}</p>
+        <span class="sala-info">Sala {{ prog.sala.numero }} - {{ prog.sala.tecnologia }}</span>
+        <p class="date-range">
+          📅 Dal {{ prog.dataInizio | date:'dd/MM/yyyy' }} al {{ prog.dataFine | date:'dd/MM/yyyy' }}
+        </p>
+      </div>
+    </div>
+  </div>
+  

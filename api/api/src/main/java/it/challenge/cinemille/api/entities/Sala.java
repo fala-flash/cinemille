@@ -1,5 +1,6 @@
 package it.challenge.cinemille.api.entities;
 
+import it.challenge.cinemille.api.models.Tecnologia;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,11 +12,12 @@ public class Sala {
 
     private int numero;
     private int capienza;
-    private String tecnologia; // "IMAX" o "Standard"
+    @Enumerated(EnumType.STRING)
+    private Tecnologia tecnologia;
 
     public Sala() {}
 
-    public Sala(int numero, int capienza, String tecnologia) {
+    public Sala(int numero, int capienza, Tecnologia tecnologia) {
         this.numero = numero;
         this.capienza = capienza;
         this.tecnologia = tecnologia;
@@ -37,10 +39,11 @@ public class Sala {
     public void setCapienza(int capienza) {
         this.capienza = capienza;
     }
-    public String getTecnologia() {
+    public Tecnologia getTecnologia() {
         return tecnologia;
     }
-    public void setTecnologia(String tecnologia) {
+
+    public void setTecnologia(Tecnologia tecnologia) {
         this.tecnologia = tecnologia;
     }
 }
