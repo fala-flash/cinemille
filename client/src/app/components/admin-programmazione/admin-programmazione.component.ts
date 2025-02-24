@@ -13,8 +13,8 @@ export class AdminProgrammazioneComponent implements OnInit {
   programmazioni: Programmazione[] = [];
   dataInizio: string = '';
   dataFine: string = '';
-  username: string = 'admin';
-  password: string = 'admin123';
+  username: string = '';
+  password: string = '';
   message: string = '';
 
   constructor(private programmazioneService: ProgrammazioneService) { }
