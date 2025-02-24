@@ -91,3 +91,10 @@ Il seguente diagramma rappresenta la struttura delle classi  utilizzate nel back
 Il seguente diagramma rappresenta la struttura delle classi  utilizzate nel client realizzato con Angular. Mostra le relazioni tra i componenti i servizi e le interfacce.
 
 ![Class Diagram Client](class_diagram_client.png)
+
+
+### Activity Diagram
+
+Il seguente diagramma rappresenta il flusso completo delle operazioni che avvengono tra client, api e attori coinvolti.
+
+![Activity Diagram](activity_diagram.png)
